@@ -1,0 +1,28 @@
+<form [formGroup]="form"
+      (ngSubmit)="onPost()">
+
+  <div class="form-fields-wrapper">
+    <mat-form-field class="content-form-field">
+      <mat-label>内容</mat-label>
+      <textarea matInput
+                matTextareaAutosize
+                formControlName="content"
+                name="content"
+                required></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>何秒後に通知?</mat-label>
+      <input matInput
+             formControlName="inSeconds"
+             name="in_seconds"
+             type="number"
+             required>
+    </mat-form-field>
+  </div>
+
+  <button mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="loading$ | async">リマインダーを登録する</button>
+</form>

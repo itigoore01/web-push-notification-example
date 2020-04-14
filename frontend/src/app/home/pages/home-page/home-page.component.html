@@ -1,0 +1,39 @@
+<header>
+  <mat-toolbar>
+    <span class="toolbar-title">Web push notification example</span>
+
+    <button mat-button (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>ログアウト</span>
+    </button>
+  </mat-toolbar>
+</header>
+
+<main>
+  <div class="subscribe-toggle-wrapper">
+    <mat-slide-toggle [formControl]="subscribeFormControl"
+                      [matTooltip]="cannotSubscribeReasonText">
+      通知を受け取る
+    </mat-slide-toggle>
+  </div>
+
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>リマインダー</mat-panel-title>
+        <mat-panel-description>指定秒数後に通知でリマインドします</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <app-reminder-form></app-reminder-form>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>メッセンジャー</mat-panel-title>
+        <mat-panel-description>指定したEmailアドレスのユーザーに通知でメッセージを送ります</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <app-messenger-form></app-messenger-form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</main>

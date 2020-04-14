@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]="form"
+        (ngSubmit)="onLogin()">
+
+    <mat-card>
+
+      <mat-card-title>サインイン</mat-card-title>
+
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>メールアドレス</mat-label>
+          <input matInput
+                 type="email"
+                 formControlName="email"
+                 name="email"
+                 required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>パスワード</mat-label>
+          <input matInput
+                 type="password"
+                 formControlName="password"
+                 name="password"
+                 required>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="remember">ログイン状態を保存する</mat-checkbox>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <a mat-button
+           color="primary"
+           [routerLink]="['/register']">アカウントを作成する</a>
+
+        <button mat-flat-button
+                color="primary"
+                [disabled]="submitDisabled$ | async">サインイン</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </form>
+</div>
