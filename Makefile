@@ -13,13 +13,14 @@ setup:
 setup-backend:
 	cd docker && \
 		docker-compose exec workspace composer install && \
-		docker-compose exec workspace php artisan key:generate && \
-		docker-compose exec php artisan webpush:vaipd
+		docker-compose exec workspace cp .env.example .env && \
+		docker-compose exec workspace php artisan key:generate --ansi && \
+		docker-compose exec workspace php artisan webpush:vapid
 	@make fresh
 
 setup-frontend:
 	cd frontend && \
-		npm ci &&
+		npm ci
 	@make ng-build
 
 stop:
@@ -45,4 +46,4 @@ serve:
 		npm run start
 ng-build:
 	cd frontend && \
-		npx ng build -- --prod
+		npm run build -- --prod
