@@ -1,0 +1,9 @@
+{
+  "root": "dist/web-push-notification-example",
+  "https_only": true,
+  "proxies": {
+    "/api/": {
+      "origin": "https://${API_APP_NAME}.herokuapp.com/"
+    }
+  }
+}
