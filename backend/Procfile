@@ -1,2 +1,3 @@
 web: vendor/bin/heroku-php-nginx -C nginx_app.conf public
 worker: php artsan queue:work
+release: php artisan migrate
